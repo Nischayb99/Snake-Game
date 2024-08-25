@@ -4,27 +4,27 @@ Welcome to the Snake Game with Music, a classic snake game with an integrated mu
 
 Table of Contents
 
--Introduction
--Features
--Installation
--Usage
--File Structure
--Technologies Used
--Contributing
--License
--Acknowledgments
+ • Introduction
+ • Features
+ • Installation
+ • Usage
+ • File Structure
+ • Technologies Used
+ • Contributing
+ • License
+ • Acknowledgments
 
 Introduction
 
-This project is a basic snake game created using HTML, CSS, and JavaScript. The game also features a music player that allows users to play, pause, and skip tracks while playing the game. The game starts with the press of a button and challenges the player to grow the snake by consuming food while avoiding collisions with the snake's own body.
+   This project is a basic snake game created using HTML, CSS, and JavaScript. The game also features a music player that allows users to play, pause, and skip tracks while playing the game. The game starts with the press of a button and challenges the player to grow the snake by consuming food while avoiding collisions with the snake's own body.
 
 Features
 
--Classic Snake Gameplay: Control the snake and try to grow it as large as possible by eating food.
--Responsive Music Player: Play, pause, and switch between tracks while playing the game.
--Dynamic Game Speed: The game speed increases as the player progresses.
--Score Tracking: Display the current score during gameplay.
--Game Over Screen: Restart the game upon failure.
+ • Classic Snake Gameplay: Control the snake and try to grow it as large as possible by eating food.
+ • Responsive Music Player: Play, pause, and switch between tracks while playing the game.
+ • Dynamic Game Speed: The game speed increases as the player progresses.
+ • Score Tracking: Display the current score during gameplay.
+ • Game Over Screen: Restart the game upon failure.
 
 Installation
 
