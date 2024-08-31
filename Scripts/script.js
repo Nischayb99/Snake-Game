@@ -2,11 +2,11 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // Set canvas size
-canvas.width = 600;
-canvas.height = 400;
+canvas.width = 900;
+canvas.height = 600;
 
 // Create the unit size
-const box = 20;
+const box = 30;
 
 // Load images (optional, can be replaced by solid colors)
 const ground = " #5a189a";

@@ -16,13 +16,17 @@ body {
 }
 
 .scoreboard {
-    position: absolute;
+    position: fixed;
     top: 20px;
-    color: #fff;
+    left: 200px;
+    color: #000;
     
 }
 
 canvas {
+    position: fixed;
+    top: 100px;
+    left: 20px;
     border: 4px solid #10002b;
     border-radius: 15px;
     box-shadow: 0 0 5px #c77dff;
@@ -66,8 +70,8 @@ canvas {
 .music{
     width: 300px;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 50px;
+    right: 50px;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(255,255,255,0.8);
 }
