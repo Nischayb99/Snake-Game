@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Snake game 2</title>
+</head>
+<body>
+    <div class="full-body">
+        <div class="header-con">
+            <header>
+                <div class="header-icone-con">
+                    <div class="head-part-1">
+                        <button class="head-menu"><i class="ri-menu-line menu-line glow"></i></button>
+                        <h1 class="app-logo">Snake Game</h1>
+                        <button class="head-icons glow">Home</button>
+                        <button class="head-icons glow">About</button>
+                        <button class="head-icons glow">Contact</button>
+                    </div>
+                    <div class="head-part-2">
+                        <img src="./Assets/profile-img.png" class="profile-img">
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="main-con">
+            <div class="game-con">
+                <div class="scoreboard">
+                    <h2 id="score">Score: 0</h2>
+                </div>
+                <div>
+                    <canvas id="gameCanvas"></canvas>
+                </div>
+                <div id="gameOverScreen" class="hidden">
+                    <h1>Game Over</h1>
+                    <button id="restartButton">Restart Game</button>
+                </div>
+                <div class="music-Container">
+                    <iframe class="music" src="https://open.spotify.com/embed/playlist/7kBq1AGvv2I893uo5L7sHj?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="add-con"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
