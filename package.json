@@ -17,12 +17,12 @@
     "responsive",
     "game"
   ],
-  "author": "Your Name",
+  "author": "NischayB99",
   "license": "MIT",
-  "homepage": "https://your-snake-game.vercel.app",
+  "homepage": "https://snake-game-first-project.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/snake-game.git"
+    "url": "https://github.com/Nischayb99/Snake-Game.git"
   },
   "devDependencies": {
     "serve": "^14.0.0"
