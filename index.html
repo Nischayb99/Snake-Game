@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" href="logo.png" type="image/x-icon">
     <title>Snake Game</title>
     <style>
         * {
@@ -47,6 +48,7 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .logo {
@@ -78,6 +80,129 @@
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            padding: 2rem 1rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .mobile-close {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-nav-btn {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .mobile-nav-btn:hover,
+        .mobile-nav-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        /* Mobile Overlay */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Home Page Styles */
@@ -592,13 +717,13 @@
                 font-size: 1.5rem;
             }
 
+            /* Hide desktop nav, show mobile toggle */
             .nav-links {
-                gap: 0.5rem;
+                display: none;
             }
 
-            .nav-btn {
-                padding: 0.4rem 1rem;
-                font-size: 0.8rem;
+            .menu-toggle {
+                display: flex;
             }
 
             .hero-section {
@@ -703,14 +828,47 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
+
+                <!-- Logo -->
                 <h1 class="logo">🐍 Snake Game</h1>
+
+                <!-- Desktop Navigation -->
                 <div class="nav-links">
                     <button class="nav-btn active" data-page="home">Home</button>
                     <button class="nav-btn" data-page="game">Play</button>
                     <button class="nav-btn" data-page="about">About</button>
                 </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ri-menu-line"></i>
+                </button>
             </div>
         </header>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Menu</span>
+                <button class="mobile-close" id="mobileClose">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <button class="mobile-nav-btn active" data-page="home">
+                    <i class="ri-home-line"></i> Home
+                </button>
+                <button class="mobile-nav-btn" data-page="game">
+                    <i class="ri-play-line"></i> Play Game
+                </button>
+                <button class="mobile-nav-btn" data-page="about">
+                    <i class="ri-user-line"></i> About Developer
+                </button>
+            </div>
+        </nav>
 
         <!-- Home Page -->
         <main class="home-page" id="homePage">
@@ -902,10 +1060,17 @@
 
         // Navigation
         const navBtns = document.querySelectorAll('.nav-btn');
+        const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
         const startGameBtn = document.getElementById('startGameBtn');
         const backToHomeBtn = document.getElementById('backToHome');
         const restartBtn = document.getElementById('restartButton');
         const pauseBtn = document.getElementById('pauseBtn');
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
 
         // Modal
         const howToPlayBtn = document.getElementById('howToPlayBtn');
@@ -1203,8 +1368,8 @@
             homePage.classList.remove('hidden');
             aboutPage.classList.add('hidden');
             gamePage.classList.add('hidden');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            document.querySelector('[data-page="home"]').classList.add('active');
+            updateActiveNavigation('home');
+            closeMobileMenu();
 
             // Stop game if running
             if (gameState.isRunning) {
@@ -1217,8 +1382,8 @@
             homePage.classList.add('hidden');
             aboutPage.classList.remove('hidden');
             gamePage.classList.add('hidden');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            document.querySelector('[data-page="about"]').classList.add('active');
+            updateActiveNavigation('about');
+            closeMobileMenu();
 
             // Stop game if running
             if (gameState.isRunning) {
@@ -1231,18 +1396,41 @@
             homePage.classList.add('hidden');
             aboutPage.classList.add('hidden');
             gamePage.classList.remove('hidden');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            document.querySelector('[data-page="game"]').classList.add('active');
+            updateActiveNavigation('game');
+            closeMobileMenu();
             gameOverScreen.classList.add('hidden');
 
             // Initialize and start game
             startGame();
         }
 
+        function updateActiveNavigation(activePage) {
+            // Update desktop navigation
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-page="${activePage}"]`).classList.add('active');
+
+            // Update mobile navigation
+            mobileNavBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.mobile-nav-btn[data-page="${activePage}"]`).classList.add('active');
+        }
+
+        // Mobile Menu Functions
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         // Event listeners
         document.addEventListener('keydown', handleKeyPress);
 
-        // Navigation event listeners
+        // Desktop Navigation event listeners
         navBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const page = btn.dataset.page;
@@ -1254,6 +1442,32 @@
                     showAboutPage();
                 }
             });
+        });
+
+        // Mobile Navigation event listeners
+        mobileNavBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const page = btn.dataset.page;
+                if (page === 'home') {
+                    showHomePage();
+                } else if (page === 'game') {
+                    showGamePage();
+                } else if (page === 'about') {
+                    showAboutPage();
+                }
+            });
+        });
+
+        // Mobile Menu Toggle Events
+        menuToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
         });
 
         // Game control buttons
