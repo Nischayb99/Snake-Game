@@ -1,0 +1,30 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "A modern, responsive Snake game built with HTML5, CSS3, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s .",
+    "build": "echo 'Static site - no build required'",
+    "dev": "serve -s . -p 3000"
+  },
+  "keywords": [
+    "snake-game",
+    "html5",
+    "css3",
+    "javascript",
+    "canvas",
+    "responsive",
+    "game"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": "https://your-snake-game.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/snake-game.git"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
