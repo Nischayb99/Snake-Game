@@ -95,11 +95,11 @@
         </header>
 
         <!-- Mobile Navigation Overlay -->
-        <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-[1000] opacity-0 invisible transition-all duration-300"
+        <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-[1000] opacity-0 invisible transition-all duration-300 [&.active]:opacity-100 [&.active]:visible"
             id="mobileOverlay"></div>
 
         <!-- Mobile Navigation -->
-        <nav class="fixed top-0 -right-full w-[250px] h-screen bg-black/95 backdrop-blur-[20px] z-[1001] transition-[right] duration-300 p-4 border-l border-white/10"
+        <nav class="fixed top-0 -right-full w-[250px] h-screen bg-black/95 backdrop-blur-[20px] z-[1001] transition-[right] duration-300 p-4 border-l border-white/10 [&.active]:right-0"
             id="mobileNav">
             <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
                 <span class="text-xl font-semibold text-white">Menu</span>
@@ -283,7 +283,7 @@
                         <button
                             class="bg-transparent border-2 border-white/30 text-white px-4 py-2 rounded-full cursor-pointer transition-all duration-300 flex items-center gap-2 text-sm hover:bg-white/10 hover:-translate-y-0.5"
                             id="pauseBtn">
-                            <i class="ri-pause-line"></i> 
+                            <i class="ri-pause-line"></i>
                         </button>
                     </div>
                     <div class="flex gap-4 sm:gap-8 text-base sm:text-xl font-semibold">
