@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "name": "snake-game",
-  "builds": [
-    {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
+    {
+      "src": "/favicon.png",
+      "headers": { "Content-Type": "image/png" },
+      "dest": "/favicon.png"
+    },
     {
       "src": "/robots.txt",
       "headers": { "Content-Type": "text/plain" },
