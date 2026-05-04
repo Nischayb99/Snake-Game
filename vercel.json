@@ -9,6 +9,16 @@
   ],
   "routes": [
     {
+      "src": "/robots.txt",
+      "headers": { "Content-Type": "text/plain" },
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "/sitemap.xml",
+      "headers": { "Content-Type": "application/xml" },
+      "dest": "/sitemap.xml"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
